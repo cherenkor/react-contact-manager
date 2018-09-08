@@ -11,20 +11,34 @@ const Header = props => {
         <a href="/" className="navbar-brand">
           {branding}
         </a>
-        <div>
-          <ul className="navbar-nav mr-auto">
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNavDropdown"
+        >
+          <ul className="navbar-nav align-items-center">
             <li className="nav-item">
-              <Link to="/" className="nav-link lead">
+              <Link to="/" className="nav-link">
                 <i className="fas fa-home" />
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/contact/add" className="nav-link lead">
+              <Link to="/contact/add" className="nav-link">
                 <i className="fas fa-plus" />
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link lead">
+              <Link to="/about" className="nav-link">
                 <i className="fas fa-question" />
               </Link>
             </li>
