@@ -2,16 +2,22 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Consumer } from "../../context";
 import axios from "axios";
+import { notify } from "react-notify-toast";
 
 class Contact extends Component {
   state = {
     showDetailedInfo: false
   };
 
-  onDeleteContact = (dispatch, id) => {
-    axios
-      .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then(res => dispatch({ type: "DELETE_CONTACT", contactId: id }));
+  onDeleteContact = async (dispatch, id) => {
+    notify.show("Deleting...", "error", 1500);
+    try {
+      await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      dispatch({ type: "DELETE_CONTACT", contactId: id });
+    }
   };
 
   render() {

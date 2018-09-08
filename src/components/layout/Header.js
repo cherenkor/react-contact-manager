@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 const Header = props => {
@@ -28,19 +28,32 @@ const Header = props => {
         >
           <ul className="navbar-nav align-items-center">
             <li className="nav-item">
-              <Link to="/" className="nav-link">
+              <NavLink
+                to="/"
+                exact={true}
+                className="nav-link"
+                activeClassName="is-active"
+              >
                 <i className="fas fa-home" />
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/contact/add" className="nav-link">
+              <NavLink
+                to="/contact/add"
+                className="nav-link"
+                activeClassName="is-active"
+              >
                 <i className="fas fa-plus" />
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link">
+              <NavLink
+                to="/about"
+                className="nav-link"
+                activeClassName="is-active"
+              >
                 <i className="fas fa-question" />
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

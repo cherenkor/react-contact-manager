@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Consumer } from "../../context";
 import TextInputGroup from "../layout/TextInputGroup";
 import axios from "axios";
+import { notify } from "react-notify-toast";
 
 export default class AddContact extends Component {
   state = {
@@ -12,7 +13,7 @@ export default class AddContact extends Component {
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
-  onSubmit = (dispatch, e) => {
+  onSubmit = async (dispatch, e) => {
     e.preventDefault();
 
     const { name, email, phone } = this.state;
@@ -36,9 +37,13 @@ export default class AddContact extends Component {
       phone
     };
 
-    axios
-      .post("https://jsonplaceholder.typicode.com/users", newContact)
-      .then(res => dispatch({ type: "ADD_CONTACT", newContact: res.data }));
+    notify.show("Adding...", "error", 1500);
+
+    const res = await axios.post(
+      "https://jsonplaceholder.typicode.com/users",
+      newContact
+    );
+    dispatch({ type: "ADD_CONTACT", newContact: res.data });
 
     this.setState({
       name: "",

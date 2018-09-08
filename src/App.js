@@ -8,6 +8,7 @@ import Header from "./components/layout/Header";
 import About from "./components/pages/About";
 import NotFound from "./components/pages/NotFound";
 import { Provider } from "./context";
+import Notifications from "react-notify-toast";
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
                 <Route component={NotFound} />
               </Switch>
             </div>
+            <Notifications options={{ zIndex: 200 }} />
           </div>
         </Router>
       </Provider>

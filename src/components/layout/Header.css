@@ -3,5 +3,9 @@
 }
 li:hover .fas {
     font-size: 1.2em;
+    color: rgba(103, 255, 45, 0.95);
+}
+
+.is-active .fas, .is-active:hover .fas {
     color: rgba(251, 255, 125, 0.95);
 }
