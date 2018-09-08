@@ -1,0 +1,7 @@
+.fas {
+    transition: all .4s;
+}
+li:hover .fas {
+    font-size: 1.2em;
+    color: rgba(251, 255, 125, 0.95);
+}
