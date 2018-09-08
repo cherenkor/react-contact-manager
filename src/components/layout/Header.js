@@ -39,7 +39,7 @@ const Header = props => {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/contact/add"
+                to="/contacts/add"
                 className="nav-link"
                 activeClassName="is-active"
               >

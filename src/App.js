@@ -9,6 +9,7 @@ import About from "./components/pages/About";
 import NotFound from "./components/pages/NotFound";
 import { Provider } from "./context";
 import Notifications from "react-notify-toast";
+import EditContact from "./components/contacts/EditContact";
 
 class App extends Component {
   render() {
@@ -20,7 +21,12 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact path="/" component={Contacts} />
-                <Route exact path="/contact/add" component={AddContact} />
+                <Route exact path="/contacts/add" component={AddContact} />
+                <Route
+                  exact
+                  path="/contacts/edit/:id"
+                  component={EditContact}
+                />
                 <Route exact path="/about" component={About} />
                 <Route component={NotFound} />
               </Switch>

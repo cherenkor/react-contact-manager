@@ -16,6 +16,16 @@ const reducer = (state, action) => {
         ...state,
         contacts: [action.newContact, ...state.contacts]
       };
+    case "UPDATE_CONTACT":
+      return {
+        ...state,
+        contacts: state.contacts.map(
+          contact =>
+            contact.id === parseInt(action.editedContact.id, 10)
+              ? action.editedContact
+              : contact
+        )
+      };
     default:
       return state;
   }
@@ -27,10 +37,9 @@ export class Provider extends Component {
     dispatch: action => this.setState(state => reducer(state, action))
   };
 
-  componentDidMount() {
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then(res => this.setState({ contacts: res.data }));
+  async componentDidMount() {
+    const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+    this.setState({ contacts: res.data });
   }
 
   render() {
