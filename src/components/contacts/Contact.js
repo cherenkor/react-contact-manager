@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Consumer } from "../../context";
+import axios from "axios";
 
 class Contact extends Component {
   state = {
     showDetailedInfo: false
   };
+
+  onDeleteContact = (dispatch, id) => {
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+      .then(res => dispatch({ type: "DELETE_CONTACT", contactId: id }));
+  };
+
   render() {
     const { id, name, email, phone } = this.props.contact;
     const { showDetailedInfo } = this.state;
@@ -36,9 +44,7 @@ class Contact extends Component {
                     cursor: "pointer",
                     float: "right"
                   }}
-                  onClick={() =>
-                    dispatch({ type: "DELETE_CONTACT", contactId: id })
-                  }
+                  onClick={this.onDeleteContact.bind(this, dispatch, id)}
                 />
               </h2>
               <ul
