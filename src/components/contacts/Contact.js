@@ -14,7 +14,7 @@ class Contact extends Component {
         {({ dispatch }) => {
           return (
             <div className="card card-body mb-3">
-              <h2>
+              <h2 style={{ fontSize: "1.4rem" }}>
                 {name}{" "}
                 <i
                   className="fas fa-caret-down"
@@ -31,7 +31,11 @@ class Contact extends Component {
                 />
                 <i
                   className="fas fa-times"
-                  style={{ color: "red", cursor: "pointer", float: "right" }}
+                  style={{
+                    color: "red",
+                    cursor: "pointer",
+                    float: "right"
+                  }}
                   onClick={() =>
                     dispatch({ type: "DELETE_CONTACT", contactId: id })
                   }
@@ -46,6 +50,7 @@ class Contact extends Component {
                   transform: showDetailedInfo ? "scale(1)" : "scale(0)",
                   overflow: "hidden",
                   height: "auto",
+                  fontSize: "0.9rem",
                   maxHeight: showDetailedInfo ? "500px" : "0"
                 }}
               >

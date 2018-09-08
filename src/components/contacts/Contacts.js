@@ -9,7 +9,7 @@ class Contacts extends Component {
         {({ contacts }) => {
           return (
             <React.Fragment>
-              <h1 className="display-4 mb-3">
+              <h1 className="mb-3">
                 <span className="text-danger">Contact</span> List
               </h1>
               {contacts.map(contact => (

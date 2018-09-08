@@ -3,7 +3,7 @@ import React from "react";
 export default () => {
   return (
     <div>
-      <h1 className="display-4 mb-3">
+      <h1 className="mb-3">
         <span className="text-danger">About</span> Contact Manager
       </h1>
       <p className="lead">
