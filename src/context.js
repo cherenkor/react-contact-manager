@@ -27,19 +27,19 @@ export class Provider extends Component {
         id: 1,
         name: "John Doe",
         email: "jdoe@gmail.com",
-        phone: "222-234-4321"
+        phone: "777-777-7777"
       },
       {
         id: 2,
-        name: "Elfo Dis",
+        name: "Elfo Wilson",
         email: "elfo@gmail.com",
-        phone: "768-234-4321"
+        phone: "111-111-1111"
       },
       {
         id: 3,
-        name: "Olga Diskont",
-        email: "logaDiskont@gmail.com",
-        phone: "444-234-4321"
+        name: "Jane Smith",
+        email: "jsmith@gmail.com",
+        phone: "22-333-4444"
       }
     ],
     dispatch: action => this.setState(state => reducer(state, action))
